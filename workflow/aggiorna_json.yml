@@ -1,0 +1,30 @@
+name: Aggiorna grafo JSON
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # ogni giorno alle 6:00 UTC
+  workflow_dispatch:      # permette anche l'esecuzione manuale
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clona la repository
+      uses: actions/checkout@v3
+
+    - name: Imposta Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Esegui lo script Python
+      run: python collega_versi_tei.py
+
+    - name: Commit e push dei cambiamenti
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add grafo_conoscenza_updated.json
+        git commit -m "Aggiornamento automatico del grafo JSON"
+        git push
