@@ -1,0 +1,10 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://example.org/simboli/> .
+
+:Pane_e_pesci a dc:PhysicalResource ;
+    dc:title "Miracolo della moltiplicazione" ;
+    dc:type "Cibo" ;
+    dc:description "Azzurro, grigio, marrone, giallo" ;
+    dc:coverage "in primo piano" ;
+    dc:identifier "f1.6.1" ;
+    dc:relation "Aperta" ;

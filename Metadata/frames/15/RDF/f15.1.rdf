@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <rdf:Description rdf:about="img/frames/15/f15.1.png">
+        <dc:title>f15.1</dc:title>
+        <dc:creator>Sergej Paradžanov</dc:creator>
+        <dc:subject>Film, Cinema, Fotogramma</dc:subject>
+        <dc:description>Sequenza in cui il poeta sembra passare a miglior vita</dc:description>
+        <dc:coverage>00:49:45</dc:coverage>
+        <dc:publisher>RAI</dc:publisher>
+        <dc:date>1968</dc:date>
+        <dc:type>Image</dc:type>
+        <dc:format>image/png</dc:format>
+        <dc:identifier>img/frames/15/f15.1</dc:identifier>
+        <dc:source>
+            Film: Sayat Nova (2023) -
+            https://www.raiplay.it/video/2023/01/Sayat-Nova-66829305-ce46-4b88-b8f7-070440d906c8.html
+        </dc:source>
+        <dc:language>it</dc:language>
+        <dc:rights>© 2023 RAI. Tutti i diritti riservati.</dc:rights>
+    </rdf:Description>
+</rdf:RDF>

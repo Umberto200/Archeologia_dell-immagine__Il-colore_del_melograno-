@@ -1,0 +1,10 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://example.org/simboli/> .
+
+:Pugnale a dc:PhysicalResource ;
+    dc:title "Pugnale" ;
+    dc:type "Arma" ;
+    dc:description "Rosso, grigio, nero" ;
+    dc:coverage "in primo piano" ;
+    dc:identifier "f1.3" ;
+    dc:relation "Aperta" ;

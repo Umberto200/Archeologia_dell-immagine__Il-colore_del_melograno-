@@ -1,0 +1,10 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://example.org/simboli/> .
+
+:Grappolo a dc:PhysicalResource ;
+    dc:title "Grappolo d'uva schiacciato" ;
+    dc:type "Frutta" ;
+    dc:description "Viola, nero" ;
+    dc:coverage "in primo piano" ;
+    dc:identifier "f1.5" ;
+    dc:relation "Aperta" ;

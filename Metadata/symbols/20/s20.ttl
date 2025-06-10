@@ -1,0 +1,10 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <http://example.org/simboli/> .
+
+:Finestra a dc:PhysicalResource ;
+    dc:title "Finestra" ;
+    dc:type "Decorazione" ;
+    dc:description "Oro, rosso, verde, blu" ;
+    dc:coverage "in primo piano" ;
+    dc:identifier "f20.3" ;
+    dc:relation "Aperta" ;

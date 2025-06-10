@@ -1,0 +1,224 @@
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Raffronto ventesima citazione con la poesia originale</title>
+                <author>Sayat-Nova</author>
+                <respStmt>
+                    <resp>Encoding</resp>
+                    <orgName>Alma Mater Studiorum - University of Bologna</orgName>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Taccari Umberto</publisher>
+                <pubPlace>Bologna</pubPlace>
+                <date>2025</date>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <bibl>
+                    <author>Sayat-Nova</author>
+                    <title>Canzoniere armeno</title>
+                    <publisher>Edizioni Ariele</publisher>
+                    <pubPlace>Milano</pubPlace>
+                    <date>2015</date>
+                    <editor>Paola Mildonian</editor>
+                </bibl>
+                <listWit>
+                    <witness xml:id="C">
+                        <bibl>
+                            <title>Canzoniere armeno</title>
+                            <publisher>Edizioni Ariele</publisher>
+                            <pubPlace>Milano</pubPlace>
+                            <date>2021</date>
+                            <biblScope unit="poem" from="41" to="41">poesia n. 41</biblScope>
+                            <ptr
+                                target="https://www.edizioniariele.it/index.php/catalogo/13-letterature/armena/80-canzoniere-armeno.html" />
+                        </bibl>
+                    </witness>
+                    <witness xml:id="F">
+                        <bibl>
+                            <title>Il colore del melograno</title>
+                            <author>Sergej Paradžanov</author>
+                            <pubPlace>URSS</pubPlace>
+                            <date>1969</date>
+                            <ptr
+                                target="https://www.raiplay.it/video/2023/01/Sayat-Nova-66829305-ce46-4b88-b8f7-070440d906c8.html" />
+                        </bibl>
+                    </witness>
+                </listWit>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <creation>
+            </creation>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <lg>
+                <l n="1">Il mondo è una finestra<app>
+                        <lem wit="#C">,</lem>
+                        <rdg wit="#F" type="punctuation">e</rdg>
+                    </app> sono
+                    stanco di queste arcate,</l>
+                <l n="2">chi <app>
+                        <lem wit="#C">gli presta ascolto ne resta piegato,</lem>
+                        <rdg wit="#F" type="lexical">la attraversa con lo sguardo si brucia e io</rdg>
+                    </app>
+                    sono stanco di queste ferite.</l>
+                <l n="3">Ieri <app>
+                        <lem wit="#C">è stato migliore dell'oggi, ma sono già stanco del domani.</lem>
+                        <rdg wit="#F" type="lexical">era meglio di oggi e io sono stanco dell'alba </rdg>
+                    </app>
+                </l>
+                <l n="4">L'uomo non può essere sempre <app>
+                        <lem wit="#C">lo stesso.</lem>
+                        <rdg wit="#F" type="lexical">uguale e sono</rdg>
+                    </app>Sono
+                    stanco <app>
+                        <lem wit="#C">di questi versi.</lem>
+                        <rdg wit="#F" type="lexical">delle commedie</rdg>
+                    </app></l>
+                <lb />
+                <l n="5">
+                    <app>
+                        <lem wit="#C">Le ricchezze non danno certezza, se si dileguano con la loro
+                            preda.</lem>
+                        <rdg wit="#F" type="repetition" corresp="#l3">Ieri era meglio di oggi e io
+                            sono stanco dell'alba </rdg>
+                    </app>
+                </l>
+                <l n="6">
+                    <app>
+                        <lem wit="#C">Bravo è l'uomo che sa mantenersi nella stima del mondo intero.
+                        </lem>
+                        <rdg wit="#F" type="repetition" corresp="#l4">L'uomo non può essere sempre
+                            uguale e io sono stanco delle
+                            commedie </rdg>
+                    </app>
+                </l>
+                <l n="7">
+                    <app>
+                        <lem wit="#C">Il mondo non ci è destinato per sempre secondo il parere dei
+                            saggi.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+
+                    </app>
+                </l>
+                <l n="8">
+                    <app>
+                        <lem wit="#C">Voglio volare come l'usignolo, sono stanco di questi giardini.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <lb />
+                <l n="9">
+                    <app>
+                        <lem wit="#C">Chi può dire che vivrà dal mattino fino al calare del buio,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="10">
+                    <app>
+                        <lem wit="#C">nelle mani di Dio per l'uomo è semplice entrare e uscire dal
+                            mondo.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="11">
+                    <app>
+                        <lem wit="#C">La mia verità non trova facile via dacché fra la gente s'è
+                            moltiplicata la
+                            menzogna,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="12">
+                    <app>
+                        <lem wit="#C">venti signori non mantengono un solo servo, sono stanco di
+                            questi padroni.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <lb />
+                <l n="13">
+                    <app>
+                        <lem wit="#C">Il mondo non ci sarà destinato finché sediamo a far festa e
+                            baldoria.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="14">
+                    <app>
+                        <lem wit="#C">Figlio d'Adamo che ti nutri di latte crudo, sia maledetta
+                            quella tua
+                            parola,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="15">
+                    <app>
+                        <lem wit="#C">la miapazienza è giunta al limite, più non sopporto gli
+                            scherni del
+                            popolo,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="16">
+                    <app>
+                        <lem wit="#C">gli amici mi sono divenuti ostili, sono stanco di nemici di
+                            questo tipo.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <lb />
+                <l n="17">Sayat-Nova <app>
+                        <lem wit="#C">l'ha detto: più del rimedio è cresciuta la mia pena,</lem>
+                        <rdg wit="#F" type="lexical">disse la mia sofferenza supera ogni misura </rdg>
+                    </app></l>
+                <l n="18">
+                    <app>
+                        <lem wit="#C">non ho più la dolce gloria del passato, s'è accresciuta la
+                            miseria del
+                            presente.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="19">
+                    <app>
+                        <lem wit="#C">Piango come l'usignolo, alla mia rosa si sono moltiplicate le
+                            spine,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="20">
+                    <app>
+                        <lem wit="#C">non le permettono di aprirsi quand'è tempo, io le raccolgo, ma
+                            sono
+                            stanco.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+            </lg>
+        </body>
+    </text>
+</TEI>

@@ -1,0 +1,115 @@
+{
+    "@context": {
+        "ex": "http://example.org/",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "simboli": "http://example.org/simboli/"
+    },
+    "@graph": [
+        {
+            "@id": "ex:Il_colore_del_melograno",
+            "@type": "ex:Film"
+        },
+        {
+            "@id": "ex:Poesia41",
+            "@type": "ex:Poesia",
+            "ex:eCitataIn": {
+                "@id": "ex:Il_colore_del_melograno"
+            },
+            "ex:contieneSimbolo": {
+                "@id": "simboli:Finestra"
+            }
+        },
+        {
+            "@id": "ex:Verso_v1",
+            "@type": "ex:Verso",
+            "ex:testo": "#1",
+            "ex:eParteDi": {
+                "@id": "ex:Poesia41"
+            },
+            "ex:contieneSimbolo": {
+                "@id": "simboli:Finestra"
+            }
+        },
+        {
+            "@id": "ex:Verso_v2",
+            "@type": "ex:Verso",
+            "ex:testo": "#2",
+            "ex:eParteDi": {
+                "@id": "ex:Poesia41"
+            }
+        },
+        {
+            "@id": "ex:Verso_v3",
+            "@type": "ex:Verso",
+            "ex:testo": "#3",
+            "ex:eParteDi": {
+                "@id": "ex:Poesia41"
+            }
+        },
+        {
+            "@id": "ex:Verso_v4",
+            "@type": "ex:Verso",
+            "ex:testo": "#4",
+            "ex:eParteDi": {
+                "@id": "ex:Poesia41"
+            }
+        },
+        {
+            "@id": "ex:Verso_v5",
+            "@type": "ex:Verso",
+            "ex:testo": "#5",
+            "ex:eParteDi": {
+                "@id": "ex:Poesia41"
+            }
+        },
+        {
+            "@id": "ex:Frame_f20.1",
+            "@type": "ex:Frame",
+            "ex:eParteDi": {
+                "@id": "ex:Il_colore_del_melograno"
+            },
+            "ex:contieneVerso": [
+                {
+                    "@id": "ex:Verso_v3"
+                }
+            ]
+        },
+        {
+            "@id": "ex:Frame_f20.2",
+            "@type": "ex:Frame",
+            "ex:eParteDi": {
+                "@id": "ex:Il_colore_del_melograno"
+            },
+            "ex:contieneVerso": [
+                {
+                    "@id": "ex:Verso_v1"
+                }
+            ]
+        },
+        {
+            "@id": "ex:Frame_f20.3",
+            "@type": "ex:Frame",
+            "ex:eParteDi": {
+                "@id": "ex:Il_colore_del_melograno"
+            },
+            "ex:contieneVerso": [
+                {
+                    "@id": "ex:Verso_v4"
+                }
+            ],
+            "ex:contieneSimbolo": {
+                "@id": "simboli:Finestra"
+            }
+        },
+        {
+            "@id": "simboli:Finestra",
+            "@type": "dc:PhysicalResource",
+            "dc:title": "Finestra",
+            "dc:type": "Decorazione",
+            "dc:description": "Oro, rosso, verde, blu",
+            "dc:coverage": "in primo piano",
+            "dc:identifier": "f20.3",
+            "dc:relation": "Aperta"
+        }
+    ]
+}

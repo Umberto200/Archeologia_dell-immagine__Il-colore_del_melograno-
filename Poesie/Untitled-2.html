@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Catalogo delle poesie</title>
+    <link rel="stylesheet" href="../Style.css" />
+    <link rel="icon" href="../img/icon and decorations/Favicon.png" type="image/x-icon" />
+
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../Index.htmlF" class="logo">
+                <img src="../img/icon and decorations/Armenian Flag.png" alt="Armenian Flag" />
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../Index.html">Home</a></li>
+                    <li><a href="../Mappa.html">Mappa interattiva</a></li>
+                    <li><a href="../Scene.html">Catalogo delle scene</a></li>
+                    <li><a href="../Poesie.html">Catalogo delle poesie</a></li>
+                    <li><a href=#>Catalogo dei simboli </a></li>
+                    <li><a href=#>Bibliografia e fonti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="poesie-layout">
+
+
+        <aside class="poesie-stats">
+            <h2>Statistiche delle Varianti</h2>
+            <canvas id="rdgChart" width="300" height="300"></canvas>
+            <p>Clicca su una fetta per evidenziare le varianti corrispondenti nel testo.</p>
+        </aside>
+        <main class="main-poesie">
+
+
+            <button onclick="toggleReadings()">Clicca per leggere il testo originale o i versi citati nel film</button>
+            <lg>
+                <l n="1">Il mondo è una finestra<app>
+                        <lem wit="#C">,</lem>
+                        <rdg wit="#F" type="punctuation">e</rdg>
+                    </app>sono
+                    stanco di queste arcate,</l>
+                <l n="2">chi <app>
+                        <lem wit="#C">gli presta ascolto ne resta piegato,</lem>
+                        <rdg wit="#F" type="lexical">la attraversa con lo sguardo si brucia e io</rdg>
+                    </app>
+                    sono stanco di queste ferite.</l>
+                <l n="3">Ieri <app>
+                        <lem wit="#C">è stato migliore dell'oggi, ma sono già stanco del domani.</lem>
+                        <rdg wit="#F" type="lexical">era meglio di oggi e io sono stanco dell'alba </rdg>
+                    </app>
+                </l>
+                <l n="4">L'uomo non può essere sempre <app>
+                        <lem wit="#C">lo stesso.</lem>
+                        <rdg wit="#F" type="lexical">uguale e sono</rdg>
+                    </app>Sono
+                    stanco <app>
+                        <lem wit="#C">di questi versi.</lem>
+                        <rdg wit="#F" type="lexical">delle commedie</rdg>
+                    </app>
+                </l>
+                <lb />
+                <l n="5">
+                    <app>
+                        <lem wit="#C">Le ricchezze non danno certezza, se si dileguano con la loro
+                            preda.</lem>
+                        <rdg wit="#F" type="repetition" corresp="#l3">Ieri era meglio di oggi e io
+                            sono stanco dell'alba </rdg>
+                    </app>
+                </l>
+                <l n="6">
+                    <app>
+                        <lem wit="#C">Bravo è l'uomo che sa mantenersi nella stima del mondo intero.
+                        </lem>
+                        <rdg wit="#F" type="repetition" corresp="#l4">L'uomo non può essere sempre
+                            uguale e io sono stanco delle
+                            commedie </rdg>
+                    </app>
+                </l>
+                <l n="7">
+                    <app>
+                        <lem wit="#C">Il mondo non ci è destinato per sempre secondo il parere dei
+                            saggi.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+
+                    </app>
+                </l>
+                <l n="8">
+                    <app>
+                        <lem wit="#C">Voglio volare come l'usignolo, sono stanco di questi giardini.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <lb />
+                <l n="9">
+                    <app>
+                        <lem wit="#C">Chi può dire che vivrà dal mattino fino al calare del buio,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="10">
+                    <app>
+                        <lem wit="#C">nelle mani di Dio per l'uomo è semplice entrare e uscire dal
+                            mondo.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="11">
+                    <app>
+                        <lem wit="#C">La mia verità non trova facile via dacché fra la gente s'è
+                            moltiplicata la
+                            menzogna,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="12">
+                    <app>
+                        <lem wit="#C">venti signori non mantengono un solo servo, sono stanco di
+                            questi padroni.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <lb />
+                <l n="13">
+                    <app>
+                        <lem wit="#C">Il mondo non ci sarà destinato finché sediamo a far festa e
+                            baldoria.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="14">
+                    <app>
+                        <lem wit="#C">Figlio d'Adamo che ti nutri di latte crudo, sia maledetta
+                            quella tua
+                            parola,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="15">
+                    <app>
+                        <lem wit="#C">la mia pazienza è giunta al limite, più non sopporto gli
+                            scherni del
+                            popolo,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="16">
+                    <app>
+                        <lem wit="#C">gli amici mi sono divenuti ostili, sono stanco di nemici di
+                            questo tipo.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <lb />
+                <l n="17">Sayat-Nova <app>
+                        <lem wit="#C">l'ha detto: più del rimedio è cresciuta la mia pena,</lem>
+                        <rdg wit="#F" type="lexical">disse la mia sofferenza supera ogni misura </rdg>
+                    </app>
+                </l>
+                <l n="18">
+                    <app>
+                        <lem wit="#C">non ho più la dolce gloria del passato, s'è accresciuta la
+                            miseria del
+                            presente.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="19">
+                    <app>
+                        <lem wit="#C">Piango come l'usignolo, alla mia rosa si sono moltiplicate le
+                            spine,
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+                <l n="20">
+                    <app>
+                        <lem wit="#C">non le permettono di aprirsi quand'è tempo, io le raccolgo, ma
+                            sono
+                            stanco.
+                        </lem>
+                        <rdg wit="#F" type="om" />
+                    </app>
+                </l>
+            </lg>
+    </div>
+    </main>
+    </div>
+    <script>
+        let showingVariants = false;
+
+        function toggleReadings() {
+            const main = document.querySelector('.main-poesie');
+            showingVariants = !showingVariants;
+            main.classList.toggle('show-rdg', showingVariants);
+
+            const button = document.querySelector('button');
+            button.textContent = showingVariants ? 'Mostra il testo originale' : 'Mostra i versi presenti nel film';
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const rdgData = [
+            { type: "punctuation", count: 1 },
+            { type: "lexical", count: 5 },
+            { type: "repetition", count: 2 },
+            { type: "om", count: 13 }
+        ];
+
+        const ctx = document.getElementById('rdgChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: rdgData.map(d => d.type),
+                datasets: [{
+                    label: 'Tipologie di Varianti',
+                    data: rdgData.map(d => d.count),
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8BC34A'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                onClick: (e, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const selectedType = rdgData[index].type;
+                        highlightVariants(selectedType);
+                    }
+                }
+            }
+        });
+
+        function highlightVariants(type) {
+            document.querySelectorAll('app').forEach(app => {
+                const rdg = app.querySelector('rdg');
+                const lem = app.querySelector('lem');
+
+                if (rdg && rdg.getAttribute('type') === type) {
+                    rdg.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+                    rdg.style.fontWeight = 'bold';
+                    if (lem) {
+                        lem.style.backgroundColor = 'rgba(255, 255, 0, 0.3)';
+                        lem.style.fontWeight = 'bold';
+                    }
+                } else {
+                    if (rdg) {
+                        rdg.style.backgroundColor = '';
+                        rdg.style.fontWeight = '';
+                    }
+                    if (lem) {
+                        lem.style.backgroundColor = '';
+                        lem.style.fontWeight = '';
+                    }
+                }
+            });
+        }
+
+    </script>
+    <footer class="tei-download">
+        <p>Scarica la poesia in formato <abbr title="Text Encoding Initiative">TEI</abbr> XML:</p>
+        <a href="../Metadata/lines/20/l20.xml" download target="_blank">Scarica il file TEI</a>
+    </footer>
+</body>
+
+</html>
