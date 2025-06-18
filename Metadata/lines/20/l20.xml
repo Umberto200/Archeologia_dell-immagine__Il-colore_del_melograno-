@@ -6,7 +6,9 @@
         <fileDesc>
             <titleStmt>
                 <title>Raffronto ventesima citazione con la poesia originale</title>
-                <author>Sayat-Nova</author>
+                <author>
+                    <persName ref="https://viaf.org/viaf/77715540">Sayat-Nova</persName>
+                </author>
                 <respStmt>
                     <resp>Encoding</resp>
                     <orgName>Alma Mater Studiorum - University of Bologna</orgName>
@@ -22,7 +24,9 @@
             </publicationStmt>
             <sourceDesc>
                 <bibl>
-                    <author>Sayat-Nova</author>
+                    <author>
+                        <persName ref="https://viaf.org/viaf/77715540">Sayat-Nova</persName>
+                    </author>
                     <title>Canzoniere armeno</title>
                     <publisher>Edizioni Ariele</publisher>
                     <pubPlace>Milano</pubPlace>
@@ -44,7 +48,9 @@
                     <witness xml:id="F">
                         <bibl>
                             <title>Il colore del melograno</title>
-                            <author>Sergej Paradžanov</author>
+                            <author>
+                                <persName ref="https://viaf.org/viaf/44353874">Sergej Paradžanov</persName>
+                            </author>
                             <pubPlace>URSS</pubPlace>
                             <date>1969</date>
                             <ptr
