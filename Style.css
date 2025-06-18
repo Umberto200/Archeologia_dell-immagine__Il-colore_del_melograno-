@@ -73,15 +73,15 @@ body {
 
 /* Immagini di sfondo */
 .bg1 {
-    background-image: url("img/icon and decorations/melograno.png");
+    background-image: url("img/icon_decorations/melograno.png");
 }
 
 .bg2 {
-    background-image: url("img/icon and decorations/Haghibat.jpeg");
+    background-image: url("img/icon_decorations/Haghibat.jpeg");
 }
 
 .bg3 {
-    background-image: url("img/icon and decorations/Haghpat.png");
+    background-image: url("img/icon_decorations/Haghpat.png");
 }
 
 /* Testo sovrapposto alle immagini di sfondo*/
