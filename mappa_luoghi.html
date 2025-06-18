@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <title>Mappa Luoghi Storici - Confronto Fotografico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Fogli di stile -->
+    <link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" rel="stylesheet" />
+    <link rel="icon" href="img/icon and decorations/Favicon.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style.css" />
+
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #container {
+            display: flex;
+            height: calc(100% - 61px);
+            margin-top: 61px;
+        }
+
+        #map-container {
+            flex: 1;
+            height: 100%;
+            position: relative;
+        }
+
+        #sidebar {
+            width: 350px;
+            background: #f9f9f9;
+            border-left: 1px solid #ddd;
+            padding: 20px;
+            overflow-y: auto;
+            display: none;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #sidebar.visible {
+            display: block;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007BFF;
+        }
+
+        .sidebar-title {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.3em;
+        }
+
+        .close-sidebar {
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #666;
+            background: none;
+            border: none;
+        }
+
+        .close-sidebar:hover {
+            color: #333;
+        }
+
+        .metadata-section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            color: #007BFF;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .metadata-item {
+            margin-bottom: 8px;
+            display: flex;
+        }
+
+        .metadata-label {
+            font-weight: bold;
+            min-width: 120px;
+            color: #555;
+        }
+
+        .metadata-value {
+            flex: 1;
+            color: #333;
+        }
+
+        .custom-popup h4 {
+            margin-top: 0;
+            color: #222;
+            font-size: 1.2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .custom-popup p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .image-group {
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .image-group:hover {
+            transform: scale(1.02);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+        }
+
+        .image-group img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .image-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+            background: #007BFF;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-sidebar:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-sidebar i {
+            font-size: 1.1em;
+        }
+
+        /* Nascondi il pulsante quando la sidebar è visibile */
+        #sidebar.visible~#map-container .toggle-sidebar {
+            display: none;
+        }
+
+        /* Stile per la mappa */
+        #map_83e14f32a8dfe8a53130af21fd8656a5 {
+            position: relative;
+            width: 100.0%;
+            height: 100.0%;
+            left: 0.0%;
+            top: 0.0%;
+        }
+
+        .leaflet-container {
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .leaflet-marker-icon {
+            filter: hue-rotate(0deg);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                height: 300px;
+            }
+
+            #map-container {
+                height: calc(100% - 300px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="Index.html" class="logo">
+                <img src="img/icon and decorations/Armenian Flag.png" alt="Armenian Flag" />
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Mappa.html">Mappa interattiva</a></li>
+                    <li><a href="Scene.html">Catalogo delle scene</a></li>
+                    <li><a href="Poesie.html">Catalogo delle poesie</a></li>
+                    <li><a href="Simboli.html">Catalogo dei simboli </a></li>
+                    <li><a href="bibliografia.html">Bibliografia e fonti</a></li>
+                    <li><a href="mappa_luoghi.html">Mappa del set</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="container">
+        <div id="map-container">
+            <div class="folium-map" id="map_83e14f32a8dfe8a53130af21fd8656a5"></div>
+            <button class="toggle-sidebar" id="toggle-sidebar">
+                <i class="fas fa-info-circle"></i> <span>Mostra metadati</span>
+            </button>
+        </div>
+        <div id="sidebar">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title">Metadati Immagine</h3>
+                <button class="close-sidebar" id="close-sidebar">&times;</button>
+            </div>
+            <div id="metadata-content">
+                <p>Seleziona un'immagine dalla mappa per visualizzare i metadati</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+
+    <script>
+        // Database dei metadati delle immagini
+        const imageMetadata = {
+            // MARKER 1 - Haghpat - Astwazazin e Sourb Nshan
+            'p4e': {
+                title: "Haghpat - Astwazazin e Sourb Nshan (Oggi)",
+                description: "Vista sulla facciata nord della chiesa Astwazazin e sul Gavit della chiesa Sourb Nshan",
+                type: "Fotografia contemporanea",
+                date: "2023-06-15",
+                location: "41.0956, 44.7106",
+                resolution: "4032x3024",
+                size: "4.2 MB",
+                camera: "Canon EOS 5D Mark IV",
+                lens: "EF 24-70mm f/2.8L II USM",
+                source: "Digitales Forschungsarchiv Byzanz",
+                rights: "CC BY-NC-ND",
+                keywords: ["Architettura armena", "Chiesa", "Medioevo"],
+                technical: "ISO 100, f/8, 1/250s"
+            },
+            'p4f': {
+                title: "Haghpat - Astwazazin e Sourb Nshan (Film)",
+                description: "Scena dal film 'Il colore del melograno'",
+                type: "Fotogramma cinematografico",
+                date: "1968",
+                director: "Sergei Parajanov",
+                aspectRatio: "1.37:1",
+                source: "Archivio RAI",
+                rights: "© 2023 RAI",
+                filmTime: "00:06:25",
+                keywords: ["Cinema", "Arte", "Armenia"],
+                filmTitle: "Sayat Nova (Il colore del melograno)"
+            },
+
+            // MARKER 2 - Haghpat - Edificio con porticato
+            'p5e': {
+                title: "Haghpat - Edificio con porticato (Oggi)",
+                description: "Edificio con tre arkaden a nord-est del complesso principale",
+                type: "Fotografia contemporanea",
+                date: "2023-06-15",
+                location: "41.096, 44.711",
+                resolution: "4032x3024",
+                size: "3.8 MB",
+                camera: "Canon EOS 5D Mark IV",
+                lens: "EF 24-70mm f/2.8L II USM",
+                source: "Digitales Forschungsarchiv Byzanz",
+                rights: "CC BY-NC-ND",
+                keywords: ["Architettura", "Porticato", "Medioevo"],
+                technical: "ISO 100, f/8, 1/200s"
+            },
+            'p5f': {
+                title: "Haghpat - Edificio con porticato (Film)",
+                description: "Scena dal film 'Il colore del melograno'",
+                type: "Fotogramma cinematografico",
+                date: "1968",
+                director: "Sergei Parajanov",
+                aspectRatio: "1.37:1",
+                source: "Archivio RAI",
+                rights: "© 2023 RAI",
+                filmTime: "00:34:05",
+                keywords: ["Cinema", "Architettura", "Armenia"],
+                filmTitle: "Sayat Nova (Il colore del melograno)"
+            },
+
+            // MARKER 3 - Haghpat - Refettorio
+            'p3e': {
+                title: "Haghpat - Refettorio (Oggi)",
+                description: "Interno del refettorio con colonne e oculus",
+                type: "Fotografia contemporanea",
+                date: "2023-06-15",
+                location: "41.0962, 44.7112",
+                resolution: "4032x3024",
+                size: "4.5 MB",
+                camera: "Canon EOS 5D Mark IV",
+                lens: "EF 16-35mm f/2.8L II USM",
+                source: "Digitales Forschungsarchiv Byzanz",
+                rights: "CC BY-NC-ND",
+                keywords: ["Refettorio", "Architettura", "Medioevo"],
+                technical: "ISO 400, f/4, 1/60s"
+            },
+            'p3f': {
+                title: "Haghpat - Refettorio (Film)",
+                description: "Scena dal film 'Il colore del melograno'",
+                type: "Fotogramma cinematografico",
+                date: "1968",
+                director: "Sergei Parajanov",
+                aspectRatio: "1.37:1",
+                source: "Archivio RAI",
+                rights: "© 2023 RAI",
+                filmTime: "00:36:33",
+                keywords: ["Cinema", "Architettura", "Oculus"],
+                filmTitle: "Sayat Nova (Il colore del melograno)"
+            },
+
+            // MARKER 4 - Sanahin - Khatchkar di Sarkis
+            'p1e': {
+                title: "Sanahin - Khatchkar di Sarkis (Oggi)",
+                description: "Croce scolpita data 1219",
+                type: "Fotografia contemporanea",
+                date: "2023-06-15",
+                location: "41.0875, 44.6667",
+                resolution: "4032x3024",
+                size: "3.9 MB",
+                camera: "Canon EOS 5D Mark IV",
+                lens: "EF 24-70mm f/2.8L II USM",
+                source: "Digitales Forschungsarchiv Byzanz",
+                rights: "CC BY-NC-ND",
+                keywords: ["Khatchkar", "Scultura", "Medioevo"],
+                technical: "ISO 100, f/5.6, 1/320s"
+            },
+            'p1f': {
+                title: "Sanahin - Khatchkar di Sarkis (Film)",
+                description: "Scena dal film 'Il colore del melograno'",
+                type: "Fotogramma cinematografico",
+                date: "1968",
+                director: "Sergei Parajanov",
+                aspectRatio: "1.37:1",
+                source: "Archivio RAI",
+                rights: "© 2023 RAI",
+                filmTime: "00:06:05",
+                keywords: ["Cinema", "Khatchkar", "Arte sacra"],
+                filmTitle: "Sayat Nova (Il colore del melograno)"
+            },
+
+            // MARKER 5 - Sanahin - Muttergotteskirche
+            'p2e': {
+                title: "Sanahin - Muttergotteskirche (Oggi)",
+                description: "Interno con modellino architettonico in una nicchia",
+                type: "Fotografia contemporanea",
+                date: "2023-06-15",
+                location: "41.0877, 44.6669",
+                resolution: "4032x3024",
+                size: "4.1 MB",
+                camera: "Canon EOS 5D Mark IV",
+                lens: "EF 24-70mm f/2.8L II USM",
+                source: "Digitales Forschungsarchiv Byzanz",
+                rights: "CC BY-NC-ND",
+                keywords: ["Chiesa", "Architettura", "Modellino"],
+                technical: "ISO 800, f/4, 1/30s"
+            },
+            'p2f': {
+                title: "Sanahin - Muttergotteskirche (Film)",
+                description: "Scena dal film 'Il colore del melograno'",
+                type: "Fotogramma cinematografico",
+                date: "1968",
+                director: "Sergei Parajanov",
+                aspectRatio: "1.37:1",
+                source: "Archivio RAI",
+                rights: "© 2023 RAI",
+                filmTime: "00:03:04",
+                keywords: ["Cinema", "Chiesa", "Arte sacra"],
+                filmTitle: "Sayat Nova (Il colore del melograno)"
+            },
+
+            // MARKER 6 - Sanahin - Gregor Kirche
+            'p6e': {
+                title: "Sanahin - Gregor Kirche (Oggi)",
+                description: "Ingresso con timpano scolpito e cupola con tamburo",
+                type: "Fotografia contemporanea",
+                date: "2023-06-15",
+                location: "41.0878, 44.667",
+                resolution: "4032x3024",
+                size: "4.3 MB",
+                camera: "Canon EOS 5D Mark IV",
+                lens: "EF 16-35mm f/2.8L II USM",
+                source: "Digitales Forschungsarchiv Byzanz",
+                rights: "CC BY-NC-ND",
+                keywords: ["Chiesa", "Architettura", "Timpano"],
+                technical: "ISO 100, f/8, 1/250s"
+            },
+            'p6f': {
+                title: "Sanahin - Gregor Kirche (Film)",
+                description: "Scena dal film 'Il colore del melograno'",
+                type: "Fotogramma cinematografico",
+                date: "1968",
+                director: "Sergei Parajanov",
+                aspectRatio: "1.37:1",
+                source: "Archivio RAI",
+                rights: "© 2023 RAI",
+                filmTime: "01:00:09",
+                keywords: ["Cinema", "Chiesa", "Architettura"],
+                filmTitle: "Sayat Nova (Il colore del melograno)"
+            }
+        };
+
+        // Inizializzazione mappa
+        var map_83e14f32a8dfe8a53130af21fd8656a5 = L.map(
+            "map_83e14f32a8dfe8a53130af21fd8656a5",
+            {
+                center: [41.0915, 44.689],
+                crs: L.CRS.EPSG3857,
+                zoom: 14,
+                zoomControl: true,
+                preferCanvas: false,
+            }
+        );
+
+        var tile_layer_a5f824f272c146ef133ec3225d6737ee = L.tileLayer(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+                minZoom: 0,
+                maxZoom: 19,
+                maxNativeZoom: 19,
+                noWrap: false,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                subdomains: "abc",
+                detectRetina: false,
+                tms: false,
+                opacity: 1,
+            }
+        );
+
+        tile_layer_a5f824f272c146ef133ec3225d6737ee.addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+
+        // Funzione per creare il contenuto dei popup
+        function createPopupContent(title, description, imgToday, imgFilm) {
+            return $(`
+                <div class="custom-popup">
+                    <h4>${title}</h4>
+                    <p>${description}</p>
+                    <div class="image-container">
+                        <div class="image-group" data-imgid="${imgToday.split('/').pop().split('.')[0]}">
+                            <img src="${imgToday}">
+                            <div class="image-label">Oggi</div>
+                        </div>
+                        <div class="image-group" data-imgid="${imgFilm.split('/').pop().split('.')[0]}">
+                            <img src="${imgFilm}">
+                            <div class="image-label">Dal film</div>
+                        </div>
+                    </div>
+                </div>
+            `)[0];
+        }
+
+        // MARKER 1 (Haghpat - Astwazazin e Sourb Nshan)
+        var marker_3e5c5d70b522bb3309539fcff8d1faac = L.marker([41.0956, 44.7106]).addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+        var popup_21e95c94e53dd5958e4af60581437cba = L.popup({ "maxWidth": 450 });
+        popup_21e95c94e53dd5958e4af60581437cba.setContent(createPopupContent(
+            "Haghpat - Astwazazin e Sourb Nshan",
+            "Vista sulla facciata nord della chiesa Astwazazin e sul Gavit della chiesa Sourb Nshan",
+            "img/imgs from set/p4/p4e.png",
+            "img/imgs from set/p4/p4f.png"
+        ));
+        marker_3e5c5d70b522bb3309539fcff8d1faac.bindPopup(popup_21e95c94e53dd5958e4af60581437cba);
+        marker_3e5c5d70b522bb3309539fcff8d1faac.bindTooltip(`<div>Haghpat - Astwazazin e Sourb Nshan</div>`, { "sticky": true });
+        marker_3e5c5d70b522bb3309539fcff8d1faac.setIcon(L.AwesomeMarkers.icon({
+            "markerColor": "blue",
+            "iconColor": "white",
+            "icon": "camera",
+            "prefix": "fa",
+            "extraClasses": "fa-rotate-0",
+        }));
+
+        // MARKER 2 (Haghpat - Edificio con porticato)
+        var marker_0c670f7301118e7453923e85d443204b = L.marker([41.096, 44.711]).addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+        var popup_a7eb10b48e478374c6f414a618c74913 = L.popup({ "maxWidth": 450 });
+        popup_a7eb10b48e478374c6f414a618c74913.setContent(createPopupContent(
+            "Haghpat - Edificio con porticato",
+            "Edificio con tre arkaden a nord-est del complesso principale",
+            "img/imgs from set/p5/p5e.jpg",
+            "img/imgs from set/p5/p5f.png"
+        ));
+        marker_0c670f7301118e7453923e85d443204b.bindPopup(popup_a7eb10b48e478374c6f414a618c74913);
+        marker_0c670f7301118e7453923e85d443204b.bindTooltip(`<div>Haghpat - Edificio con porticato</div>`, { "sticky": true });
+        marker_0c670f7301118e7453923e85d443204b.setIcon(L.AwesomeMarkers.icon({
+            "markerColor": "blue",
+            "iconColor": "white",
+            "icon": "camera",
+            "prefix": "fa",
+            "extraClasses": "fa-rotate-0",
+        }));
+
+        // MARKER 3 (Haghpat - Refettorio)
+        var marker_a9abb99e54104c8632176e93932f2bb0 = L.marker([41.0962, 44.7112]).addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+        var popup_cbcfd7be9c26cdf2489ed250b833ad63 = L.popup({ "maxWidth": 450 });
+        popup_cbcfd7be9c26cdf2489ed250b833ad63.setContent(createPopupContent(
+            "Haghpat - Refettorio",
+            "Interno del refettorio con colonne e oculus",
+            "img/imgs from set/p3/p3e.jpg",
+            "img/imgs from set/p3/p3f.png"
+        ));
+        marker_a9abb99e54104c8632176e93932f2bb0.bindPopup(popup_cbcfd7be9c26cdf2489ed250b833ad63);
+        marker_a9abb99e54104c8632176e93932f2bb0.bindTooltip(`<div>Haghpat - Refettorio</div>`, { "sticky": true });
+        marker_a9abb99e54104c8632176e93932f2bb0.setIcon(L.AwesomeMarkers.icon({
+            "markerColor": "blue",
+            "iconColor": "white",
+            "icon": "camera",
+            "prefix": "fa",
+            "extraClasses": "fa-rotate-0",
+        }));
+
+        // MARKER 4 (Sanahin - Khatchkar di Sarkis)
+        var marker_5ff2cf2c6d448bebad82be1d1aff7027 = L.marker([41.0875, 44.6667]).addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+        var popup_3e6bdbada0cedda5a7adacc99022e857 = L.popup({ "maxWidth": 450 });
+        popup_3e6bdbada0cedda5a7adacc99022e857.setContent(createPopupContent(
+            "Sanahin - Khatchkar di Sarkis",
+            "Croce scolpita data 1219",
+            "img/imgs from set/p1/p1e.jpg",
+            "img/imgs from set/p1/p1f.png"
+        ));
+        marker_5ff2cf2c6d448bebad82be1d1aff7027.bindPopup(popup_3e6bdbada0cedda5a7adacc99022e857);
+        marker_5ff2cf2c6d448bebad82be1d1aff7027.bindTooltip(`<div>Sanahin - Khatchkar di Sarkis</div>`, { "sticky": true });
+        marker_5ff2cf2c6d448bebad82be1d1aff7027.setIcon(L.AwesomeMarkers.icon({
+            "markerColor": "blue",
+            "iconColor": "white",
+            "icon": "camera",
+            "prefix": "fa",
+            "extraClasses": "fa-rotate-0",
+        }));
+
+        // MARKER 5 (Sanahin - Muttergotteskirche)
+        var marker_7df1ee070b398b6cec7d3ca11daf8d18 = L.marker([41.0877, 44.6669]).addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+        var popup_72273cfb4c987df14158b5dc50cce2bf = L.popup({ "maxWidth": 450 });
+        popup_72273cfb4c987df14158b5dc50cce2bf.setContent(createPopupContent(
+            "Sanahin - Muttergotteskirche",
+            "Interno con modellino architettonico in una nicchia",
+            "img/imgs from set/p2/p2e.jpg",
+            "img/imgs from set/p2/p2f.png"
+        ));
+        marker_7df1ee070b398b6cec7d3ca11daf8d18.bindPopup(popup_72273cfb4c987df14158b5dc50cce2bf);
+        marker_7df1ee070b398b6cec7d3ca11daf8d18.bindTooltip(`<div>Sanahin - Muttergotteskirche</div>`, { "sticky": true });
+        marker_7df1ee070b398b6cec7d3ca11daf8d18.setIcon(L.AwesomeMarkers.icon({
+            "markerColor": "blue",
+            "iconColor": "white",
+            "icon": "camera",
+            "prefix": "fa",
+            "extraClasses": "fa-rotate-0",
+        }));
+
+        // MARKER 6 (Sanahin - Gregor Kirche)
+        var marker_185e84bc868fc70f59790849e55710f5 = L.marker([41.0878, 44.667]).addTo(map_83e14f32a8dfe8a53130af21fd8656a5);
+        var popup_c851f1603d9906f2c4471341f9ae7815 = L.popup({ "maxWidth": 450 });
+        popup_c851f1603d9906f2c4471341f9ae7815.setContent(createPopupContent(
+            "Sanahin - Gregor Kirche",
+            "Ingresso con timpano scolpito e cupola con tamburo",
+            "img/imgs from set/p6/p6e.jpg",
+            "img/imgs from set/p6/p6f.png"
+        ));
+        marker_185e84bc868fc70f59790849e55710f5.bindPopup(popup_c851f1603d9906f2c4471341f9ae7815);
+        marker_185e84bc868fc70f59790849e55710f5.bindTooltip(`<div>Sanahin - Gregor Kirche</div>`, { "sticky": true });
+        marker_185e84bc868fc70f59790849e55710f5.setIcon(L.AwesomeMarkers.icon({
+            "markerColor": "blue",
+            "iconColor": "white",
+            "icon": "camera",
+            "prefix": "fa",
+            "extraClasses": "fa-rotate-0",
+        }));
+
+        // Gestione sidebar
+        $(document).ready(function () {
+            // Mostra/nascondi sidebar
+            $('#toggle-sidebar').click(function (e) {
+                e.preventDefault();
+                $('#sidebar').toggleClass('visible');
+                $(this).hide(); // Nascondi il pulsante quando cliccato
+            });
+
+            // Chiudi sidebar
+            $('#close-sidebar').click(function (e) {
+                e.preventDefault();
+                $('#sidebar').removeClass('visible');
+                $('#toggle-sidebar').show(); // Mostra di nuovo il pulsante
+            });
+
+            // Click sulle immagini per mostrare i metadati
+            $(document).on('click', '.image-group', function () {
+                const imgId = $(this).data('imgid');
+                const metadata = imageMetadata[imgId];
+
+                if (metadata) {
+                    let html = '';
+
+                    // Intestazione
+                    html += `<div class="metadata-section">
+                                <h4>${metadata.title}</h4>
+                                <p>${metadata.description}</p>
+                            </div>`;
+
+                    // Informazioni base
+                    html += `<div class="metadata-section">
+                                <h5 class="section-title">Informazioni base</h5>`;
+
+                    const baseFields = ['type', 'date', 'location', 'source', 'rights'];
+                    baseFields.forEach(field => {
+                        if (metadata[field]) {
+                            html += `<div class="metadata-item">
+                                        <div class="metadata-label">${field}:</div>
+                                        <div class="metadata-value">${metadata[field]}</div>
+                                    </div>`;
+                        }
+                    });
+
+                    html += `</div>`;
+
+                    // Dettagli tecnici (per foto)
+                    if (metadata.type.includes('Fotografia')) {
+                        html += `<div class="metadata-section">
+                                    <h5 class="section-title">Dettagli tecnici</h5>`;
+
+                        const techFields = ['camera', 'lens', 'resolution', 'size', 'technical'];
+                        techFields.forEach(field => {
+                            if (metadata[field]) {
+                                html += `<div class="metadata-item">
+                                            <div class="metadata-label">${field}:</div>
+                                            <div class="metadata-value">${metadata[field]}</div>
+                                        </div>`;
+                            }
+                        });
+
+                        html += `</div>`;
+                    }
+
+                    // Dettagli film (per fotogrammi)
+                    if (metadata.type.includes('Fotogramma')) {
+                        html += `<div class="metadata-section">
+                                    <h5 class="section-title">Dettagli film</h5>`;
+
+                        const filmFields = ['director', 'format', 'aspectRatio', 'filmTime', 'filmTitle'];
+                        filmFields.forEach(field => {
+                            if (metadata[field]) {
+                                html += `<div class="metadata-item">
+                                            <div class="metadata-label">${field}:</div>
+                                            <div class="metadata-value">${metadata[field]}</div>
+                                        </div>`;
+                            }
+                        });
+
+                        html += `</div>`;
+                    }
+
+                    // Keywords
+                    if (metadata.keywords && metadata.keywords.length > 0) {
+                        html += `<div class="metadata-section">
+                                    <h5 class="section-title">Parole chiave</h5>
+                                    <div class="metadata-value">${metadata.keywords.join(', ')}</div>
+                                </div>`;
+                    }
+
+                    $('#metadata-content').html(html);
+                    $('#sidebar').addClass('visible');
+                    $('#toggle-sidebar').hide();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

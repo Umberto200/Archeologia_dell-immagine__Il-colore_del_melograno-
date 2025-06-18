@@ -1,0 +1,205 @@
+
+<ns0:uwmetadata xmlns:ns0="http://phaidra.univie.ac.at/XML/metadata/V1.0" xmlns:ns1="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0" xmlns:ns10="http://phaidra.univie.ac.at/XML/metadata/provenience/V1.0" xmlns:ns11="http://phaidra.univie.ac.at/XML/metadata/provenience/V1.0/entity" xmlns:ns12="http://phaidra.univie.ac.at/XML/metadata/digitalbook/V1.0" xmlns:ns13="http://phaidra.univie.ac.at/XML/metadata/etheses/V1.0" xmlns:ns2="http://phaidra.univie.ac.at/XML/metadata/extended/V1.0" xmlns:ns3="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0/entity" xmlns:ns4="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0/requirement" xmlns:ns5="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0/educational" xmlns:ns6="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0/annotation" xmlns:ns7="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0/classification" xmlns:ns8="http://phaidra.univie.ac.at/XML/metadata/lom/V1.0/organization" xmlns:ns9="http://phaidra.univie.ac.at/XML/metadata/histkult/V1.0">
+  <ns1:general>
+    <ns1:identifier>o:409155</ns1:identifier>
+    <ns1:title language="de">Sanahin, Kloster</ns1:title>
+    <ns2:alt_title language="en">Sanahin, Monastery</ns2:alt_title>
+    <ns2:alt_title language="hy">Սանահին վանք</ns2:alt_title>
+    <ns1:language>xx</ns1:language>
+    <ns1:description language="de">Diabeschriftung Hallensleben: &quot;Sanahin (russ. Armenien) / [Bild] / Khatchkar des Sarkis / 1219&quot;</ns1:description>
+    <ns1:keyword language="de">Hallensleben, Kloster, Khatchkar, Armenien</ns1:keyword>
+    <ns1:keyword language="en">Hallensleben, Monastery, Chatschkar, Armenia</ns1:keyword>
+    <ns2:identifiers></ns2:identifiers>
+  </ns1:general>
+  <ns1:lifecycle>
+    <ns1:upload_date>2015-11-17T20:12:56.000Z</ns1:upload_date>
+    <ns1:status>44</ns1:status>
+    <ns1:contribute seq="1">
+      <ns1:role>1552154</ns1:role>
+      <ns1:entity seq="0">
+        <ns3:firstname>Nina</ns3:firstname>
+        <ns3:lastname>Rannharter</ns3:lastname>
+        <ns3:institution>DiFaB</ns3:institution>
+      </ns1:entity>
+      <ns1:date>2015-02-04</ns1:date>
+    </ns1:contribute>
+    <ns1:contribute seq="0">
+      <ns1:role>55</ns1:role>
+      <ns1:entity seq="0">
+        <ns3:firstname>Nina</ns3:firstname>
+        <ns3:lastname>Rannharter</ns3:lastname>
+        <ns3:institution>DiFaB</ns3:institution>
+      </ns1:entity>
+      <ns1:date>2015-02-04</ns1:date>
+    </ns1:contribute>
+  </ns1:lifecycle>
+  <ns1:technical>
+    <ns1:requirement>
+      <ns1:orcomposite></ns1:orcomposite>
+    </ns1:requirement>
+    <ns1:installremarks language="de">Für die Farbinterpretation verwenden Sie: Testbild 017-118-017-163HL</ns1:installremarks>
+  </ns1:technical>
+  <ns1:educational>
+    <ns1:educationals></ns1:educationals>
+  </ns1:educational>
+  <ns1:rights>
+    <ns1:cost>no</ns1:cost>
+    <ns1:copyright>yes</ns1:copyright>
+    <ns1:license>12</ns1:license>
+    <ns1:description language="de">http://difab.univie.ac.at (Digitales Forschungsarchiv Byzanz)</ns1:description>
+  </ns1:rights>
+  <ns1:annotation>
+    <ns6:annotations>
+      <ns6:entity></ns6:entity>
+    </ns6:annotations>
+  </ns1:annotation>
+  <ns1:classification>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">30954</ns7:taxon>
+      <ns7:taxon seq="1">35463</ns7:taxon>
+      <ns7:taxon seq="2">35786</ns7:taxon>
+      <ns7:taxon seq="3">35787</ns7:taxon>
+      <ns7:taxon seq="4">35791</ns7:taxon>
+      <ns7:taxon seq="5">35827</ns7:taxon>
+      <ns7:taxon seq="6">37027</ns7:taxon>
+      <ns7:taxon seq="7">37030</ns7:taxon>
+      <ns7:taxon seq="8">37031</ns7:taxon>
+      <ns7:taxon seq="9">37036</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">18419</ns7:taxon>
+      <ns7:taxon seq="1">18420</ns7:taxon>
+      <ns7:taxon seq="2">18455</ns7:taxon>
+      <ns7:taxon seq="3">22386</ns7:taxon>
+      <ns7:taxon seq="4">22387</ns7:taxon>
+      <ns7:taxon seq="5">22388</ns7:taxon>
+      <ns7:taxon seq="6">22390</ns7:taxon>
+      <ns7:taxon seq="7">22391</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>1</ns7:source>
+      <ns7:taxon seq="0">1</ns7:taxon>
+      <ns7:taxon seq="1">127</ns7:taxon>
+      <ns7:taxon seq="2">131</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>8</ns7:source>
+      <ns7:taxon seq="0">1063467</ns7:taxon>
+      <ns7:taxon seq="1">1063553</ns7:taxon>
+      <ns7:taxon seq="2">1063554</ns7:taxon>
+      <ns7:taxon seq="3">1063555</ns7:taxon>
+      <ns7:taxon seq="4">1063574</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">30954</ns7:taxon>
+      <ns7:taxon seq="1">31544</ns7:taxon>
+      <ns7:taxon seq="2">31545</ns7:taxon>
+      <ns7:taxon seq="3">32334</ns7:taxon>
+      <ns7:taxon seq="4">32335</ns7:taxon>
+      <ns7:taxon seq="5">32643</ns7:taxon>
+      <ns7:taxon seq="6">32644</ns7:taxon>
+      <ns7:taxon seq="7">33257</ns7:taxon>
+      <ns7:taxon seq="8">33259</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">30954</ns7:taxon>
+      <ns7:taxon seq="1">31544</ns7:taxon>
+      <ns7:taxon seq="2">31545</ns7:taxon>
+      <ns7:taxon seq="3">32334</ns7:taxon>
+      <ns7:taxon seq="4">32335</ns7:taxon>
+      <ns7:taxon seq="5">32643</ns7:taxon>
+      <ns7:taxon seq="6">32644</ns7:taxon>
+      <ns7:taxon seq="7">32656</ns7:taxon>
+      <ns7:taxon seq="8">32724</ns7:taxon>
+      <ns7:taxon seq="9">32749</ns7:taxon>
+      <ns7:taxon seq="10">32750</ns7:taxon>
+      <ns7:taxon seq="11">32751</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">27469</ns7:taxon>
+      <ns7:taxon seq="1">27470</ns7:taxon>
+      <ns7:taxon seq="2">27471</ns7:taxon>
+      <ns7:taxon seq="3">29467</ns7:taxon>
+      <ns7:taxon seq="4">29468</ns7:taxon>
+      <ns7:taxon seq="5">29979</ns7:taxon>
+      <ns7:taxon seq="6">30283</ns7:taxon>
+      <ns7:taxon seq="7">30284</ns7:taxon>
+      <ns7:taxon seq="8">30297</ns7:taxon>
+      <ns7:taxon seq="9">30299</ns7:taxon>
+      <ns7:taxon seq="10">30302</ns7:taxon>
+      <ns7:taxon seq="11">30303</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">30954</ns7:taxon>
+      <ns7:taxon seq="1">31544</ns7:taxon>
+      <ns7:taxon seq="2">31545</ns7:taxon>
+      <ns7:taxon seq="3">32334</ns7:taxon>
+      <ns7:taxon seq="4">32335</ns7:taxon>
+      <ns7:taxon seq="5">32643</ns7:taxon>
+      <ns7:taxon seq="6">32644</ns7:taxon>
+      <ns7:taxon seq="7">32656</ns7:taxon>
+      <ns7:taxon seq="8">32724</ns7:taxon>
+      <ns7:taxon seq="9">32725</ns7:taxon>
+    </ns7:taxonpath>
+    <ns7:taxonpath>
+      <ns7:source>5</ns7:source>
+      <ns7:taxon seq="0">30954</ns7:taxon>
+      <ns7:taxon seq="1">31544</ns7:taxon>
+      <ns7:taxon seq="2">31545</ns7:taxon>
+      <ns7:taxon seq="3">32334</ns7:taxon>
+      <ns7:taxon seq="4">32335</ns7:taxon>
+      <ns7:taxon seq="5">32643</ns7:taxon>
+      <ns7:taxon seq="6">32644</ns7:taxon>
+      <ns7:taxon seq="7">32962</ns7:taxon>
+      <ns7:taxon seq="8">33134</ns7:taxon>
+      <ns7:taxon seq="9">33135</ns7:taxon>
+      <ns7:taxon seq="10">33161</ns7:taxon>
+      <ns7:taxon seq="11">33165</ns7:taxon>
+      <ns7:taxon seq="12">33167</ns7:taxon>
+      <ns7:taxon seq="13">33168</ns7:taxon>
+    </ns7:taxonpath>
+  </ns1:classification>
+  <ns1:organization>
+    <ns8:orgassignment></ns8:orgassignment>
+  </ns1:organization>
+  <ns9:histkult>
+    <ns9:dimensions seq="0"></ns9:dimensions>
+    <ns9:reference_number>
+      <ns9:reference>10885</ns9:reference>
+      <ns9:number>017-126</ns9:number>
+    </ns9:reference_number>
+    <ns9:note language="de">http://difab.univie.ac.at/bestand/private-sammlungen/</ns9:note>
+  </ns9:histkult>
+  <ns10:provenience>
+    <ns10:contribute>
+      <ns10:resource>10911</ns10:resource>
+      <ns10:role>10869</ns10:role>
+      <ns10:entity seq="0">
+        <ns11:firstname>Horst</ns11:firstname>
+        <ns11:lastname>Hallensleben</ns11:lastname>
+        <ns11:title1>Dr.</ns11:title1>
+      </ns10:entity>
+      <ns10:date_from>1960</ns10:date_from>
+      <ns10:date_to>1998</ns10:date_to>
+      <ns10:chronological language="de">2. Hälfte des 20. Jahrhunderts</ns10:chronological>
+      <ns10:chronological language="en">2nd half of the 20th century</ns10:chronological>
+    </ns10:contribute>
+    <ns10:contribute>
+      <ns10:resource>10910</ns10:resource>
+      <ns10:comment language="de">Architektur</ns10:comment>
+      <ns10:entity seq="0"></ns10:entity>
+      <ns10:date_from>1219</ns10:date_from>
+      <ns10:date_to>1219</ns10:date_to>
+      <ns10:chronological language="de">1. Hälfte des 13. Jahrhunderts</ns10:chronological>
+      <ns10:chronological language="en">1st half of the 13th century</ns10:chronological>
+    </ns10:contribute>
+  </ns10:provenience>
+  <ns12:digitalbook></ns12:digitalbook>
+  <ns13:etheses></ns13:etheses>
+</ns0:uwmetadata>

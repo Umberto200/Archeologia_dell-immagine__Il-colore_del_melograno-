@@ -5,11 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <title>Catalogo delle poesie</title>
+    <title>Catalogo dei simboli</title>
     <link rel="stylesheet" href="Style.css" />
     <link rel="icon" href="img/icon and decorations/Favicon.png" type="image/x-icon" />
 
 </head>
+
 
 <body>
     <header class="site-header">
@@ -27,24 +28,44 @@
                     <li><a href="bibliografia.html">Bibliografia e fonti</a></li>
                     <li><a href="mappa_luoghi.html">Mappa del set</a></li>
                 </ul>
+            </nav>
         </div>
     </header>
-
-    <h1 class="page-title">Catalogo delle Poesie</h1>
+    <h1 class="page-title">Catalogo dei simboli</h1>
 
     <main class="main">
-        <div class="quote" data-tags="mondo, finestra, vita, ferite, sguardo, alba, uomo">
-            <p class="titolo">
-                <a href="Poesie/Untitled-2.html">Il mondo è una finestra, sono stanco di queste arcate,</a>
+        <div class="quote" id="s20">
+            <a href="Schede/simboli/s20.html"><img src="img/frames/20/f20.3 010544.png" alt="Frame 20.3"></a>
+            <p class="titolo">Finestra </p>
+            <p class="numero"> Tipo: Decorazione
             </p>
-            <p class="numero">Poesia 41</p>
-            <p class="tags">Tag: mondo, finestra, vita, ferite, sguardo, alba, uomo</p>
-            <p class="time">Minuti: 01:04:19 - 01:06:03</p>
+            <p class="time"> Descrizione: Oro, rosso, verde, blu
+            </p>
+
+            <p class="time"> Posizione: in primo piano
+            </p>
+            <p class="time"> Relazione: Aperta
+            </p>
             <p class="metadata-link">
-                <a href="Metadata/lines/20/l20.xml" download target="_blank">[Scarica metadati completi in xml TEI]</a>
+                <a href="Metadata/symbols/20/s20.ttl" download target="_blank">[Scarica metadati completi in ttl]</a>
             </p>
         </div>
     </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.classList.add('highlighted');
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => {
+                        target.classList.remove('highlighted');
+                    }, 3000);
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

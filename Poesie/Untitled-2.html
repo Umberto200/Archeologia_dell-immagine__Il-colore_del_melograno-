@@ -14,7 +14,7 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="../Index.htmlF" class="logo">
+            <a href="../Index.html" class="logo">
                 <img src="../img/icon and decorations/Armenian Flag.png" alt="Armenian Flag" />
             </a>
             <nav class="main-nav">
@@ -23,8 +23,10 @@
                     <li><a href="../Mappa.html">Mappa interattiva</a></li>
                     <li><a href="../Scene.html">Catalogo delle scene</a></li>
                     <li><a href="../Poesie.html">Catalogo delle poesie</a></li>
-                    <li><a href=#>Catalogo dei simboli </a></li>
-                    <li><a href=#>Bibliografia e fonti</a></li>
+                    <li><a href="../Simboli.html">Catalogo dei simboli </a></li>
+                    <li><a href="../bibliografia.html">Bibliografia e fonti</a></li>
+                    <li><a href="../mappa_luoghi.html">Mappa del set</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -60,9 +62,9 @@
                     </app>
                 </l>
                 <l n="4">L'uomo non può essere sempre <app>
-                        <lem wit="#C">lo stesso.</lem>
+                        <lem wit="#C">lo stesso. Sono</lem>
                         <rdg wit="#F" type="lexical">uguale e sono</rdg>
-                    </app>Sono
+                    </app>
                     stanco <app>
                         <lem wit="#C">di questi versi.</lem>
                         <rdg wit="#F" type="lexical">delle commedie</rdg>
@@ -277,8 +279,26 @@
         }
 
     </script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const highlight = params.get('highlight');
+            if (highlight) {
+                const el = document.querySelector(`l[n="${highlight}"]`);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.style.backgroundColor = 'rgba(230, 153, 255, 0.5)';
+                    el.style.transition = 'background-color 1s ease-in-out';
+                    setTimeout(() => {
+                        el.style.backgroundColor = '';
+                    }, 3000);
+                }
+            }
+        });
+    </script>
+
     <footer class="tei-download">
-        <p>Scarica la poesia in formato <abbr title="Text Encoding Initiative">TEI</abbr> XML:</p>
+        <p>Scarica la poesia in formato XML TEI:</p>
         <a href="../Metadata/lines/20/l20.xml" download target="_blank">Scarica il file TEI</a>
     </footer>
 </body>

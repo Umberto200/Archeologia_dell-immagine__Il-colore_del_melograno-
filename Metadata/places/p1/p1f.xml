@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <rdf:Description rdf:about="img/fotogrammi/f1.png">
-        <dc:title>f20</dc:title>
+    <rdf:Description rdf:about="img/frames/2/f2.png">
+        <dc:title>Croce</dc:title>
         <dc:creator>Sergej Paradžanov</dc:creator>
         <dc:subject>Film, Cinema, Fotogramma</dc:subject>
-        <dc:description>In questa scena è rintracciabile l'evidente utilizzo del topos della
-            finestra che permette di giocare sulla prospettiva che il poeta ha sul
-            mondo</dc:description>
-        <dc:coverage>01:04:19-01:06:03</dc:coverage>
+        <dc:description>Croce scolpita datata 1219</dc:description>
+        <dc:coverage>00:06:05</dc:coverage>
         <dc:publisher>RAI</dc:publisher>
         <dc:date>1968</dc:date>
         <dc:type>Image</dc:type>
         <dc:format>image/png</dc:format>
-        <dc:identifier>img/fotogrammi/20/f20.3 010544</dc:identifier>
+        <dc:identifier>img/imgs from set/p1/p1f</dc:identifier>
         <dc:source>
             Film: Sayat Nova (2023) -
             https://www.raiplay.it/video/2023/01/Sayat-Nova-66829305-ce46-4b88-b8f7-070440d906c8.html</dc:source>

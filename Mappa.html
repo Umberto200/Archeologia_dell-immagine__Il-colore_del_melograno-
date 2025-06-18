@@ -20,11 +20,12 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="Index.html">Home</a></li>
-                    <li><a href="Mappa_aggiornata.html">Mappa interattiva</a></li>
+                    <li><a href="Mappa.html">Mappa interattiva</a></li>
                     <li><a href="Scene.html">Catalogo delle scene</a></li>
                     <li><a href="Poesie.html">Catalogo delle poesie</a></li>
-                    <li><a href=#>Catalogo dei simboli </a></li>
-                    <li><a href=#>Bibliografia e fonti</a></li>
+                    <li><a href="Simboli.html">Catalogo dei simboli </a></li>
+                    <li><a href="bibliografia.html">Bibliografia e fonti</a></li>
+                    <li><a href="mappa_luoghi.html">Mappa del set</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,102 +42,131 @@
             margin-top: 20px;
         }
     </style>
+    <div class="grafo">
+
+        <div id="cy">
 
 
-    <div class="graph-controls">
-        <button onclick="reorderGraph()">Riordina grafo</button>
-    </div>
+            <script>
+                let cy;
+                fetch('grafo_conoscenza.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const nodes = [];
+                        const edges = [];
 
-    <div id="cy">
-        <script>
-            let cy;
+                        // Mappa ID a link interni
+                        const linkMap = {
+                            "ex:Poesia41": "Poesie/Untitled-2.html",
+                            "ex:Verso_v1": "Poesie/Untitled-2.html?highlight=1",
+                            "ex:Verso_v2": "Poesie/Untitled-2.html?highlight=2",
+                            "ex:Verso_v3": "Poesie/Untitled-2.html?highlight=3",
+                            "ex:Verso_v4": "Poesie/Untitled-2.html?highlight=4",
+                            "ex:Verso_v5": "Poesie/Untitled-2.html?highlight=5",
+                            "ex:Frame_f20.1": "Scene.html#f20_1",
+                            "ex:Frame_f20.2": "Scene.html#f20_2",
+                            "ex:Frame_f20.3": "Scene.html#f20_3",
+                            "ex:Frame_f20.3": "Scene.html#f20_3",
+                            "simboli:Finestra": "Simboli.html#s20"
+                        };
 
-            fetch('grafo_conoscenza.json')
-                .then(response => response.json())
-                .then(data => {
-                    const nodes = [];
-                    const edges = [];
-
-                    data['@graph'].forEach(entity => {
-                        nodes.push({ data: { id: entity['@id'], label: entity['@id'].split(':')[1] } });
-
-                        if (entity['ex:eCitataIn']) {
-                            edges.push({ data: { source: entity['@id'], target: entity['ex:eCitataIn']['@id'], label: 'èCitataIn' } });
-                        }
-                        if (entity['ex:eParteDi']) {
-                            edges.push({ data: { source: entity['@id'], target: entity['ex:eParteDi']['@id'], label: 'èParteDi' } });
-                        }
-                        if (entity['ex:contieneVerso']) {
-                            const versi = Array.isArray(entity['ex:contieneVerso']) ? entity['ex:contieneVerso'] : [entity['ex:contieneVerso']];
-                            versi.forEach(v => {
-                                edges.push({ data: { source: entity['@id'], target: v['@id'], label: 'contieneVerso' } });
+                        data['@graph'].forEach(entity => {
+                            const id = entity['@id'];
+                            const label = id.split(':')[1];
+                            nodes.push({
+                                data: {
+                                    id: id,
+                                    label: label,
+                                    href: linkMap[id] || null
+                                }
                             });
-                        }
-                        if (entity['ex:contieneSimbolo']) {
-                            edges.push({ data: { source: entity['@id'], target: entity['ex:contieneSimbolo']['@id'], label: 'contieneSimbolo' } });
-                        }
-                    });
 
-                    cy = cytoscape({
-                        container: document.getElementById('cy'),
-                        elements: { nodes, edges },
-                        style: [
-                            {
-                                selector: 'node',
-                                style: {
-                                    'label': 'data(label)',
-                                    'background-color': '#66ccff',
-                                    'color': '#000',
-                                    'font-size': '14px',
-                                    'text-valign': 'center',
-                                    'text-halign': 'center',
-                                    'text-outline-color': '#fff',
-                                    'text-outline-width': 2
-                                }
-                            },
-                            {
-                                selector: 'edge',
-                                style: {
-                                    'label': 'data(label)',
-                                    'curve-style': 'bezier',
-                                    'target-arrow-shape': 'triangle',
-                                    'line-color': '#999',
-                                    'target-arrow-color': '#999',
-                                    'font-size': '10px',
-                                    'text-rotation': 'autorotate',
-                                    'text-margin-y': -10
-                                }
+                            if (entity['ex:eCitataIn']) {
+                                edges.push({ data: { source: id, target: entity['ex:eCitataIn']['@id'], label: 'èCitataIn' } });
                             }
-                        ],
-                        layout: {
-                            name: 'grid',
-                            fit: true,
-                            padding: 30,
-                            avoidOverlap: true,
-                            rows: undefined,
-                            cols: undefined,
-                            animate: true
-                        }
+                            if (entity['ex:eParteDi']) {
+                                edges.push({ data: { source: id, target: entity['ex:eParteDi']['@id'], label: 'èParteDi' } });
+                            }
+                            if (entity['ex:contieneVerso']) {
+                                const versi = Array.isArray(entity['ex:contieneVerso']) ? entity['ex:contieneVerso'] : [entity['ex:contieneVerso']];
+                                versi.forEach(v => {
+                                    edges.push({ data: { source: id, target: v['@id'], label: 'contieneVerso' } });
+                                });
+                            }
+                            if (entity['ex:contieneSimbolo']) {
+                                edges.push({ data: { source: id, target: entity['ex:contieneSimbolo']['@id'], label: 'contieneSimbolo' } });
+                            }
+                        });
+
+                        cy = cytoscape({
+                            container: document.getElementById('cy'),
+                            elements: { nodes, edges },
+                            style: [
+                                {
+                                    selector: 'node',
+                                    style: {
+                                        'label': 'data(label)',
+                                        'background-color': '#66ccff',
+                                        'color': '#000',
+                                        'font-size': '14px',
+                                        'text-valign': 'center',
+                                        'text-halign': 'center',
+                                        'text-outline-color': '#fff',
+                                        'text-outline-width': 2
+                                    }
+                                },
+                                {
+                                    selector: 'edge',
+                                    style: {
+                                        'label': 'data(label)',
+                                        'curve-style': 'bezier',
+                                        'target-arrow-shape': 'triangle',
+                                        'line-color': '#999',
+                                        'target-arrow-color': '#999',
+                                        'font-size': '10px',
+                                        'text-rotation': 'autorotate',
+                                        'text-margin-y': -10
+                                    }
+                                }
+                            ],
+                            layout: {
+                                name: 'random',
+                                fit: true,
+                                padding: 30,
+                                avoidOverlap: true,
+                                animate: true
+                            },
+                            minZoom: 0.5,
+                            maxZoom: 2,
+                            wheelSensitivity: 0.1
 
 
+                        });
+
+                        // Gestione click sui nodi
+                        cy.on('tap', 'node', function (evt) {
+                            const nodeData = evt.target.data();
+                            if (nodeData.href) {
+                                window.open(nodeData.href, '_self'); // oppure '_blank' per nuova scheda
+                            }
+                        });
                     });
-                });
 
-            function reorderGraph() {
-                if (cy) {
-                    cy.layout({
-                        name: 'grid',
-                        fit: true,
-                        padding: 30,
-                        avoidOverlap: true,
-                        rows: undefined,
-                        cols: undefined,
-                        animate: true
-                    }).run();
+                function reorderGraph() {
+                    if (cy) {
+                        cy.layout({
+                            name: 'circle',
+                            animate: true,
+                            fit: true,
+                            padding: 30
+                        }).run();
+                    }
                 }
-            }
-
-        </script>
+            </script>
+        </div>
+        <div class="graph-controls">
+            <button onclick="reorderGraph()">Riordina grafo</button>
+        </div>
     </div>
 </body>
 

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Bibliografia</title>
+    <link rel="icon" href="img/icon and decorations/Favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="Style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="Index.html" class="logo">
+                <img src="img/icon and decorations/Armenian Flag.png" alt="Armenian Flag" />
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="Mappa.html">Mappa interattiva</a></li>
+                    <li><a href="Scene.html">Catalogo delle scene</a></li>
+                    <li><a href="Poesie.html">Catalogo delle poesie</a></li>
+                    <li><a href="Simboli.html">Catalogo dei simboli</a></li>
+                    <li><a href="bibliografia.html">Bibliografia e fonti</a></li>
+                    <li><a href="mappa_luoghi.html">Mappa del set</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1 class="page-title">Bibliografia e fonti</h1>
+
+    <main class="main-content container">
+
+        <div>
+            <h2>Fonti e siti consultati</h2>
+            <ul>
+                <li>
+                    Sayat-Nova, <a href="http://id.sbn.it/bid/UBO4168220" target="_blank"><em>Canzoniere
+                            armeno</em></a>, a
+                    cura di Paola Mildonian, Edizioni Ariele, 2015.
+                    ISBN: 978-88-97476-24-5.
+                </li>
+                <li><a href="https://www.raiplay.it/" target="_blank">Raiplay.it</a></li>
+                <li><a href="https://www.treccani.it/enciclopedia/sajat-nova-cvet-granata_(Enciclopedia-del-Cinema)/"
+                        target="_blank">Treccani.it</a></li>
+                <li><a href="https://parajanov.com/main/" target="_blank">Parajanov-Vartanov Institute</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Identificatori VIAF</h2>
+            <ul>
+                <li><a href="https://viaf.org/viaf/77715540" target="_blank">Sayat Nova</a></li>
+                <li><a href="https://viaf.org/viaf/44353874" target="_blank">Sergei Parajanov</a></li>
+                <li><a href="https://viaf.org/en/viaf/117499701" target="_blank">Lars von Trier</a></li>
+                <li><a href="https://viaf.org/en/viaf/111716145" target="_blank">Martin Scorsese</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Metadati per le scene del film</h2>
+            <ul>
+                <li><strong>Tipo di file:</strong> RDF/XML</li>
+                <li><strong>Descrizione:</strong> Ogni fotogramma o scena è descritto con metadati strutturati come
+                    titolo, creatore, soggetto, descrizione testuale, timestamp, editore e diritti, utilizzando il
+                    vocabolario Dublin Core.</li>
+                <li><strong>Esempio:</strong>
+                    <pre>&lt;dc:title&gt;f1.2&lt;/dc:title&gt;
+&lt;dc:creator&gt;Sergej Paradžanov&lt;/dc:creator&gt;
+&lt;dc:description&gt;Sequenza iniziale di immagini evocative...&lt;/dc:description&gt;</pre>
+                </li>
+                <li><strong>Tecnologie/Standard utilizzati:</strong>
+                    <ul>
+                        <li>RDF (Resource Description Framework): Framework per descrivere risorse sul web.</li>
+                        <li>XML (eXtensible Markup Language): Formato di serializzazione per i dati strutturati.</li>
+                        <li>Dublin Core (dc): Vocabolario standard per i metadati.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Metadati per le poesie</h2>
+            <ul>
+                <li><strong>Tipo di file:</strong> XML-TEI</li>
+                <li><strong>Descrizione:</strong> Le poesie sono codificate seguendo gli standard TEI, con elementi
+                    strutturali (versi, strofe, titoli) e metadati (autore, data, lingua).</li>
+                <li><strong>Esempio:</strong>
+                    <pre>&lt;teiHeader&gt;
+  &lt;fileDesc&gt;
+    &lt;titleStmt&gt;&lt;title&gt;Poema XYZ&lt;/title&gt;&lt;/titleStmt&gt;
+    &lt;publicationStmt&gt;&lt;publisher&gt;Editore&lt;/publisher&gt;&lt;/publicationStmt&gt;
+  &lt;/fileDesc&gt;
+&lt;/teiHeader&gt;</pre>
+                </li>
+                <li><strong>Tecnologie/Standard utilizzati:</strong>
+                    <ul>
+                        <li>TEI (Text Encoding Initiative): Standard per la codifica di testi digitali.</li>
+                        <li>XML: Formato di base per la strutturazione dei dati.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Metadati per i simboli</h2>
+            <ul>
+                <li><strong>Tipo di file:</strong> Turtle (.ttl)</li>
+                <li><strong>Descrizione:</strong> Oggetti simbolici (es. un pugnale) sono descritti come risorse fisiche
+                    con attributi visivi, posizione nella scena e relazioni semantiche, utilizzando RDF in formato
+                    Turtle.</li>
+                <li><strong>Esempio:</strong>
+                    <pre>:Pugnale a dc:PhysicalResource ;
+    dc:title "Pugnale" ;
+    dc:description "Rosso, grigio, nero" ;
+    dc:coverage "in primo piano" .</pre>
+                </li>
+                <li><strong>Tecnologie/Standard utilizzati:</strong>
+                    <ul>
+                        <li>Turtle (Terse RDF Triple Language): Formato compatto per RDF.</li>
+                        <li>RDF: Framework per dati collegati semantici.</li>
+                        <li>Dublin Core: Esteso per descrizioni specifiche.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Bibliografia tecnica</h2>
+            <ul>
+                <li><strong>Dublin Core Metadata Initiative (DCMI)</strong>: "Dublin Core Metadata Element Set, Version
+                    1.1." <a href="https://www.dublincore.org/specifications/dublin-core/dces/" target="_blank">Link</a>
+                </li>
+                <li><strong>TEI Consortium</strong>: "TEI P5: Guidelines for Electronic Text Encoding and Interchange."
+                    <a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/" target="_blank">Link</a>
+                </li>
+                <li><strong>W3C</strong>: "RDF 1.1 Turtle" e "RDF/XML Syntax Specification." <a
+                        href="https://www.w3.org/TR/turtle/" target="_blank">Link Turtle</a>, <a
+                        href="https://www.w3.org/TR/rdf-syntax-grammar/" target="_blank">Link RDF/XML</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Tecnologie utilizzate</h2>
+            <ul>
+                <li><strong>XML TEI</strong> per la codifica dei testi poetici</li>
+                <li><strong>XML con modello RDF</strong> e vocabolario Dublin Core per i metadati delle scene</li>
+                <li><strong>RDF/Turtle</strong> per la descrizione semantica dei simboli</li>
+                <li><strong>Leaflet.js</strong> per la visualizzazione interattiva della mappa geografica</li>
+                <li><strong>Bootstrap 5</strong> per la gestione del layout responsive della mappa geografica</li>
+                <li><strong>jQuery</strong> per la gestione degli eventi e dinamicità della sidebar della mappa
+                    geografica</li>
+                <li><strong>Font Awesome</strong> per le icone dei marcatori e pulsanti della mappa geografica</li>
+                <li><strong>Cytoscape.js</strong> per la visualizzazione del grafo JSON</li>
+                <li><strong>HTML5 e CSS3</strong> per la struttura e lo stile del sito</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

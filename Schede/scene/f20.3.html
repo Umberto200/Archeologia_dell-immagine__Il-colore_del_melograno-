@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>f20.3</title>
+    <link rel="stylesheet" href="../../Style.css" />
+    <link rel="icon" href="../../img/icon and decorations/Favicon.png" type="image/x-icon" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../../Index.html" class="logo">
+                <img src="../../img/icon and decorations/Armenian Flag.png" alt="Armenian Flag" />
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../Index.html">Home</a></li>
+                    <li><a href="../../Mappa.html">Mappa interattiva</a></li>
+                    <li><a href="../../Scene.html">Catalogo delle scene</a></li>
+                    <li><a href="../../Poesie.html">Catalogo delle poesie</a></li>
+                    <li><a href="../../Simboli.html">Catalogo dei simboli </a></li>
+                    <li><a href="../../bibliografia.html">Bibliografia e fonti</a></li>
+                    <li><a href="../../mappa_luoghi.html">Mappa del set</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1 class="page-title"></h1>
+
+    <div class="contenuto">
+        <div class="dettagli-scena">
+            <h2>Scena f20.3</h2>
+            <img id="myimg" src="../../img/frames/20/f20.3 010544.png" alt="Scena f20.3"
+                style="width:100%;max-width:300px">
+
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+
+            <div class="scheda"><strong>Autore:</strong> Sergej Paradžanov</div>
+            <div class="scheda"><strong>Descrizione:</strong> In questa scena è rintracciabile l'evidente utilizzo del
+                topos della
+                finestra che permette di giocare sulla prospettiva che il poeta ha sul
+                mondo</p>
+                <div class="scheda"><strong>Tempo:</strong> 01:04:19 - 01:06:03</div>
+                <div class="scheda"><strong>Fonte:</strong> <a
+                        href="https://www.raiplay.it/video/2023/01/Sayat-Nova-66829305-ce46-4b88-b8f7-070440d906c8.html"
+                        target="_blank">Sayat Nova su RaiPlay</a></div>
+                <div class="scheda"><strong>Diritti:</strong> © 2023 RAI. Tutti i diritti riservati.</div>
+            </div>
+        </div>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById("myimg");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+        </script>
+
+</body>
+
+</html>
