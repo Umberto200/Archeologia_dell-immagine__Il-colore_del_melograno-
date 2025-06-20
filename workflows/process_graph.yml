@@ -1,0 +1,31 @@
+name: Process Graph Data
+
+on:
+  push:
+    paths:
+      - 'Metadata/lines/20/l20.xml'
+      - 'grafo_conoscenza.json'
+      - 'scripts/process_graph.py'
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Process data
+      run: |
+        python scripts/process_graph.py
+        
+    - name: Commit changes
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add grafo_conoscenza_processed.json
+        git commit -m "Auto-update processed graph [skip ci]" || echo "No changes to commit"
+        git push

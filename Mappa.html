@@ -49,7 +49,7 @@
 
             <script>
                 let cy;
-                fetch('grafo_conoscenza.json')
+                fetch('grafo_conoscenza_processed.json')  // File generato automaticamente
                     .then(response => response.json())
                     .then(data => {
                         const nodes = [];
