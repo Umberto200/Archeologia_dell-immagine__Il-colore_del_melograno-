@@ -24,15 +24,12 @@ jobs:
         python scripts/process_graph.py
         
     - name: Commit changes
-      env:
-        GH_TOKEN: ${{ secrets.PAT }}
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         git add grafo_conoscenza_processed.json
         git commit -m "Auto-update processed graph [skip ci]"
-        git push origin main
+        git push
           
     - name: Process data
       run: |
