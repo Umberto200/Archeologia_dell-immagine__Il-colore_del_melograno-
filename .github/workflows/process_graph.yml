@@ -30,3 +30,11 @@ jobs:
         git add grafo_conoscenza_processed.json
         git commit -m "Auto-update processed graph [skip ci]" || echo "No changes to commit"
         git push
+        
+    - name: Process data
+      run: |
+       echo "=== DEBUG ==="
+       echo "Working directory: $(pwd)"
+       echo "File presenti:"
+       ls -R
+       python scripts/process_graph.py

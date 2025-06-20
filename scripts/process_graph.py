@@ -1,13 +1,20 @@
 import xml.etree.ElementTree as ET
 import json
 import os
+import sys
+
 
 def process_graph():
-    # Percorsi file (adattati alla tua struttura)
-    xml_path = os.path.join('Metadata/lines/20/l20.xml')
-    json_path = os.path.join('data', 'grafo_conoscenza.json')
-    output_path = 'grafo_conoscenza_processed.json'
-    
+    base_dir = os.getcwd()
+    xml_path = os.path.join(base_dir, 'Metadata', 'lines', '20', 'l20.xml')
+    json_path = os.path.join(base_dir, 'grafo_conoscenza.json')
+    output_path = os.path.join(base_dir, 'grafo_conoscenza_processed.json')
+    if not os.path.exists(xml_path):
+        print(f"ERRORE: File XML non trovato in {xml_path}", file=sys.stderr)
+        sys.exit(1)
+    if not os.path.exists(json_path):
+        print(f"ERRORE: File JSON non trovato in {json_path}", file=sys.stderr)
+        sys.exit(1)
     # Elaborazione XML
     tree = ET.parse(xml_path)
     root = tree.getroot()
@@ -44,3 +51,8 @@ def process_graph():
 
 if __name__ == '__main__':
     process_graph()
+
+if __name__ == '__main__':
+    print("=== AVVIO SCRIPT ===")
+    process_graph()
+    print("=== ELABORAZIONE COMPLETATA ===")
