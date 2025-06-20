@@ -1,6 +1,7 @@
 name: Process Graph Data
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'Metadata/lines/20/l20.xml'
