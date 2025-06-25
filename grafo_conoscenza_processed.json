@@ -22,7 +22,7 @@
     {
       "@id": "ex:Verso_v1",
       "@type": "ex:Verso",
-      "ex:testo": "Il mondo è una finestra\n                        ,\n                        e\n                     sono\n                    stanco di queste arcate,",
+      "ex:testo": "Il mond è una finestra\n                        ,\n                        e\n                     sono\n                    stanco di queste arcate,",
       "ex:eParteDi": {
         "@id": "ex:Poesia41"
       },
